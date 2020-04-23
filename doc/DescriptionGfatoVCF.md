@@ -32,9 +32,9 @@ I'm starting to the graph and with this algorithm I explore it; As result I'm ob
 Breadth first Search is a recursive algorithm for searching all the vertices of a graph or tree data structure.
 
 This algorithm works as follows:
--Start by putting any one of the graph's vertices at the back of a queue.
--Take the front item of the queue and add it to the visited list.
--Create a list of that vertex's adjacent nodes. Add the ones which aren't in the visited list to the back of the queue.
+- Start by putting any one of the graph's vertices at the back of a queue.
+- Take the front item of the queue and add it to the visited list.
+- Create a list of that vertex's adjacent nodes. Add the ones which aren't in the visited list to the back of the queue.
 
 I implement this algorithm because to identify a bubble I need of distance from source from each node. 
 
@@ -48,7 +48,8 @@ From my script if distance is unique, I'm obtained start and end of bubbles. The
 
 **Possible path**
 
-Considering all the possible paths that connect the initial node and the final node of each bubble.                   For each path chosen as REF, I check the alternates for that REF.
+Considering all the possible paths that connect the initial node and the final node of each bubble.                   
+For each path chosen as REF, I check the alternates for that REF.
 
 **SNV and INDEL**
 

@@ -1,8 +1,8 @@
 import sys
-sys.path.append('/home/flavia/Lab/odgi/lib')  
+sys.path.append('odgi/lib')  
 import odgi
 g = odgi.graph()
-g.load("/home/flavia/Desktop/GfaToVcf/samplePath3.odgi")
+g.load("samplePath3.odgi")
 
 def process_step(s):
     h = g.get_handle_of_step(s) # gets the handle (both node and orientation) of the step
@@ -42,7 +42,7 @@ for path_name, steps_list in path_to_steps_dict.items():
             node_id_to_path_and_pos_dict[node_id][path_name] = pos
         
         
-        pos += len(seq)  #per ogni posizione aggiungimi la lunghezza della sequenza
+        pos += len(seq)  #for each position add lenght of sequence 
 
 
 
@@ -53,12 +53,12 @@ for node_id in sorted(node_id_to_path_and_pos_dict.keys()):
     for path, pos in path_and_pos_dict.items():
         print('path:', path,'- pos:', pos)
 
-start_node = g.get_handle(1)   #radice
+start_node = g.get_handle(1)   #root
 g.get_id(start_node), g.get_sequence(start_node)  #id:seq
 
-g_dfs = odgi.graph() # Array to keep track of visited nodes
+g_dfs = odgi.graph() # Array to keep track of visited nodes, DFS
 
-def create_edge_and_so_on(handle1, handle2, so_on_function, *args):   #albero con DFS
+def create_edge_and_so_on(handle1, handle2, so_on_function, *args):   #graph to tree 
     handle1_id = g.get_id(handle1)     
     handle2_id = g.get_id(handle2)
     if not g_dfs.has_node(handle2_id):   
@@ -88,12 +88,12 @@ def dfs(node_id):
         False,
 
         lambda neighbour:
-            create_edge_and_so_on(                       #partendo da un nodo vado ad esplorare il resto
+            create_edge_and_so_on(                       #start from a node and explore 
                 current_node, neighbour, dfs, g.get_id(neighbour)
             )
     )
 
-import queue
+import queue    #calculate distance from root with an implementation of BFS
 
 def calculate_distance(visited_node_id_set, prev_node_id, neighbour_id, Q, distances_dict):
     if neighbour_id not in visited_node_id_set:
@@ -122,7 +122,7 @@ def bfs_distances(graph, starting_node_id):
     Q = queue.Queue()
 
     Q.put(starting_node_id)
-    visited_node_id_set.add(starting_node_id) #parte dal nodo di start
+    visited_node_id_set.add(starting_node_id) #start visit from starting node
     while not Q.empty():
         current_node_id = Q.get()
         current_node = g.get_handle(current_node_id)
@@ -147,7 +147,7 @@ dfs(1)
 def show_edge(a, b):
     print(g_dfs.get_id(a), "-->", g_dfs.get_id(b))
 
-def display_node_edges(h):
+def display_node_edges(h):           #consider only forward strand
     print("node", g_dfs.get_id(h))
     g_dfs.follow_edges(
         h, False,
@@ -170,22 +170,22 @@ for node_id, distance in distances_dict.items():
 
 #print('ordered_node_id_lis:t', ordered_node_id_list)
 
-dist_to_num_nodes = dict()    #dizionario che ha distanza dalla radice ordinata, se distanza unique già è nel dizionario
+dist_to_num_nodes = dict()    #if distance is unique it is already in a dict
 for node_id, distance in distances_dict.items():
-    if distance not in dist_to_num_nodes.keys():    #se la distanza non è tra le chiavi, metti 0, se già inizializzata aggiungi 1
+    if distance not in dist_to_num_nodes.keys():    #if distance not in the keys, put 0, if not add 1 
         dist_to_num_nodes[distance] = 0
     dist_to_num_nodes[distance] += 1
 
-print('\nDistance from root --> Num. nodes')   #conto distanze 
+print('\nDistance from root --> Num. nodes')   #count distance 
 for k, v in dist_to_num_nodes.items():
     print(k, '-->', v)
 
 print('\nBubbles')
 possible_bubbles_list = []
 first_bubble = True
-for node_id in ordered_node_id_list:        #per ogni distanza nella lista di nodi ordinati, entra usando la chiave distanza
+for node_id in ordered_node_id_list:        #for each distance, I enter using key distance
     key = distances_dict[node_id]
-    if dist_to_num_nodes[key] == 1:  #se la distanza è univoca printa start altrimenti no
+    if dist_to_num_nodes[key] == 1:     #if distance is unique print START
         if not first_bubble:
             print(node_id, 'END', node_id_to_path_and_pos_dict[node_id],g_dfs.get_sequence(g_dfs.get_handle(node_id)))
             possible_bubbles_list[-1][1] = node_id
@@ -337,7 +337,7 @@ for current_ref in path_to_steps_dict.keys():
     
         
 
-    break  #per avere solo un path
+    break  #This is important because if you start with a graph that have three paths and you only want one path in VCF and not three, not comment break
 
 
 
@@ -354,7 +354,7 @@ import time
 
 with open('sample.vcf', 'w') as fw:
     fw.write('##fileformat=VCFv4.2\n')
-    fw.write('##fileDate=' + time.strftime("%Y%m%d") + '\n')   #genera la data di generazione nel vcf automaticamente
+    fw.write('##fileDate=' + time.strftime("%Y%m%d") + '\n')   #generation date of vcf create 
     fw.write('##reference=x.fa\n')
     fw.write('##reference=y.fa\n')
     fw.write('##reference=z.fa\n')

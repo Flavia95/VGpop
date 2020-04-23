@@ -1,0 +1,30 @@
+##fileformat=VCFv4.2
+##fileDate=20200423
+##reference=x.fa
+##reference=y.fa
+##reference=z.fa
+##commandline=gfa2vcf.py --input-gfa g.odgi
+##INFO=<ID=TYPE,Number=A,Type=String,Description="Type of each allele (snv, ins, del, mnp, complex)">
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	SampleName
+x	9	.	G	A	.	.	TYPE=snv	GT	0|1
+x	10	.	C	T	.	.	TYPE=snv	GT	0|1
+x	14	.	G	A	.	.	TYPE=snv	GT	0|1
+x	18	.	T	TAA	.	.	TYPE=ins	GT	0|1
+x	23	.	TGG	T	.	.	TYPE=del	GT	0|1
+x	34	.	T	A	.	.	TYPE=snv	GT	0|1
+x	39	.	T	A	.	.	TYPE=snv	GT	0|1
+y	9	.	A	G	.	.	TYPE=snv	GT	0|1
+y	10	.	C	T	.	.	TYPE=snv	GT	0|1
+y	14	.	G	A	.	.	TYPE=snv	GT	0|1
+y	18	.	TAA	T	.	.	TYPE=del	GT	0|1
+y	25	.	T	TGG	.	.	TYPE=ins	GT	0|1
+y	34	.	A	T	.	.	TYPE=snv	GT	0|1
+y	39	.	A	T	.	.	TYPE=snv	GT	0|1
+z	9	.	A	G	.	.	TYPE=snv	GT	0|1
+z	10	.	T	C	.	.	TYPE=snv	GT	0|1
+z	14	.	A	G	.	.	TYPE=snv	GT	0|1
+z	18	.	TAA	T	.	.	TYPE=del	GT	0|1
+z	25	.	TGG	T	.	.	TYPE=del	GT	0|1
+z	36	.	A	T	.	.	TYPE=snv	GT	0|1
+z	41	.	T	A	.	.	TYPE=snv	GT	0|1

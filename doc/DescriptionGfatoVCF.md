@@ -50,3 +50,9 @@ Considering all the possible paths, the variants have been called, that is the n
 
 I use vg tools for working with genome variation graphs for validate VCF obtained from GFA. 
 From VCF obtained with script I obtained the same graph that I use from start. 
+
+```
+./vg construct -v gfatovcf.vcf.gz -r ref.fa > VcftoGraph.vg
+./vg view -dp  VcfToGraph.vg | dot -Tpdf -o ValidationGraph.pdf
+
+```

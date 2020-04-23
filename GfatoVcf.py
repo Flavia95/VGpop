@@ -278,6 +278,9 @@ for current_ref in path_to_steps_dict.keys():
                     succ_node_id_path = path[current_index_step_path + 1]
                     succ_node_id_ref = ref_path[current_index_step_ref + start_node_index_in_ref_path + 1]
                     if succ_node_id_ref == current_node_id_path:
+                        #If the succ node in the ref is the current node in the current path, it means that
+                        #in the current path a node is missing, so there is a deletion respect to the reference
+                        
                         print('DEL')
                         node_seq_ref = g.get_sequence(g.get_handle(current_node_id_ref))
 
@@ -295,6 +298,9 @@ for current_ref in path_to_steps_dict.keys():
                         print('\t', current_node_id_ref)
                         continue
                     elif succ_node_id_path == current_node_id_ref:
+                        #if the succ node in the current path there is a node in the ref, it means that
+                        #in the current path there is a node that is missing in the ref, that is an insertion
+                        
                         print('INS')
                         node_seq_path = g.get_sequence(g.get_handle(current_node_id_path))
 

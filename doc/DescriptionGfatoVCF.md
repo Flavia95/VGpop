@@ -1,4 +1,14 @@
-1) odgi build -g graph.gfa -o graph.og
+
+
+```
+./ms 4 1 -t 11.2 -I 2 2 2 -g 1 44.36 -n 2 0.05 -eg 0.03125 1 0.0 -ej 0.03125 2 1 > out2pop.ms
+```
+ [MstoGfa.py](/tesiFlavia/MstoGfa.py)
+
+
+#### 1. GFA--> ODGI
+
+odgi build -g graph.gfa -o graph.og
 
 DFS: I'm starting to the graph and with this algorithm I explore it; I'm obtained a tree.
 Depth first traversal or Depth first Search is a recursive algorithm for searching all the vertices of a graph or tree data structure. The purpose of the algorithm is to mark each vertex as visited.

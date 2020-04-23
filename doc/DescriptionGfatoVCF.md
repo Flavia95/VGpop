@@ -1,15 +1,21 @@
 # Graphical Fragment Assembly(GFA) to Variant Call Format(VCF)
 
 ![](/figures/recapscript.png)
-#### 1. GFA to ODGI
+
+#### GFA to ODGI
 The first step after run the script [GfatoVcf.py](/VGpop/GfatoVCF.py) is convert GFA format in ODGI format.
 Odgi is a tool that manipulate variation graphs,large graph without memory problem.
 https://pangenome.github.io/odgi/index.html
 
 ```
-odgi build -g graph.gfa -o graph.og
+odgi build -g graph.gfa -o graph.odgi
 ```
-### 2.Depth first Search (DFS)
+Obtained the odgi format, give it as input to the script. 
+
+Description of script.
+
+
+### 1.Depth first Search (DFS)
 
 Depth first Search is a recursive algorithm for searching all the vertices of a graph or tree data structure. The purpose of the algorithm is to mark each vertex as visited.
 
@@ -20,7 +26,7 @@ The DFS algorithm works as follows:
 
 I'm starting to the graph and with this algorithm I explore it; As result I'm obtained a tree.
 
-### 3. Breadth first Search(BFS)
+### 2. Breadth first Search(BFS)
 
 Breadth first Search is a recursive algorithm for searching all the vertices of a graph or tree data structure.
 
@@ -31,21 +37,21 @@ This algorithm works as follows:
 
 I implement this algorithm because to identify a bubble I need of distance from source from each node. 
 
-### 4. Bubbles Calling
+### 3. Bubbles Calling
 
 A bubble consists of multiple directed unipaths from a vertex v to a vertex u and is commonly caused by a small number of errors in the centre of reads. There have a start and a end.
 
 From my script if distance is unique, I'm obtained start and end of bubbles. The center of the bubble is our ALT. 
 
-### 5. Variant Calling
+### 4. Variant Calling
 
 Possible path: considering all the possible paths that connect the initial node and the final node of each bubble.                   For each path chosen as REF, I check the alternates for that REF.
 
-### 6. SNV and INDEL
+### 5. SNV and INDEL
 
 Considering all the possible paths, the variants have been called, that is the nodes supported by at least one path, whose sequence is different from the sequence of the corresponding node in the reference considered.
 
-### 7. Validation VCF
+### 6. Validation VCF
 
 I use vg tools for working with genome variation graphs for validate VCF obtained from GFA. 
 From VCF obtained with script I obtained the same graph that I use from start. 

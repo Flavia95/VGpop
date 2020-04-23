@@ -10,7 +10,7 @@ https://pangenome.github.io/odgi/index.html
 ```
 odgi build -g graph.gfa -o graph.og
 ```
-### 2.Depth first Search(DFS)
+### 2.Depth first Search (DFS)
 
 Depth first Search is a recursive algorithm for searching all the vertices of a graph or tree data structure. The purpose of the algorithm is to mark each vertex as visited.
 
@@ -30,17 +30,17 @@ This algorithm works as follows:
 -Take the front item of the queue and add it to the visited list.
 -Create a list of that vertex's adjacent nodes. Add the ones which aren't in the visited list to the back of the queue.
 
-I implement this algorithm for obtained distance from source from each node. 
+I implement this algorithm because to identify a bubble I need of distance from source from each node. 
 
 ### 4. Bubbles Calling
 
 A bubble consists of multiple directed unipaths from a vertex v to a vertex u and is commonly caused by a small number of errors in the centre of reads. There have a start and a end.
 
-From my script if distance is unique, I'm obtained start and end of bubbles. 
+From my script if distance is unique, I'm obtained start and end of bubbles. The center of the bubble is our ALT. 
 
 ### 5. Variant Calling
 
-Possible path: considering all the possible paths that connect the initial node and the final node of each bubble.
+Possible path: considering all the possible paths that connect the initial node and the final node of each bubble.                   For each path chosen as REF, I check the alternates for that REF.
 
 ### 6. SNV and INDEL
 

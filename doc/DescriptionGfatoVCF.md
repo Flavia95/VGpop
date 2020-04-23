@@ -5,11 +5,10 @@
 #### 1. GFA to ODGI
 The first step after run the script [GfatoVcf.py](/VGpop/GfatoVCF.py) is convert GFA format in ODGI format.
 Odgi is a tool that manipulate variation graphs,large graph without memory problem.
-https://pangenome.github.io/odgi/index.html
+<a href = 'https://pangenome.github.io/odgi/index.html'>
 
-```
-odgi build -g graph.gfa -o graph.og
-```
+<pre>odgi build -g graph.gfa -o graph.og </pre>
+
 ### 2.Depth first Search (DFS)
 
 Depth first Search is a recursive algorithm for searching all the vertices of a graph or tree data structure. The purpose of the algorithm is to mark each vertex as visited.

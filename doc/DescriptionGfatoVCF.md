@@ -12,8 +12,7 @@ odgi build -g graph.gfa -o graph.odgi
 ```
 Obtained the odgi format, give it as input to the script. 
 
-Description of script.
-
+Description of script:
 
 ### 1.Depth first Search (DFS)
 

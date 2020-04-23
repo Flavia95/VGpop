@@ -69,3 +69,5 @@ From VCF obtained with script I obtained the same graph that I use from start.
 ./vg view -dp  VcfToGraph.vg | dot -Tpdf -o ValidationGraph.pdf
 
 ```
+
+From [samplepath3.odgi](/data/samplepath3.odgi) I get [sampleOutputpath3.vcf](/result/sampleOutputpath3.vcf). Start from GFA in the VCF, CHROM is the name of path in the gfa, POS is the lenght of sequence (ex. Node1: CAG, NODE2: TA--> POS 3 and POS 3+ 2 = 5. REF: Chose a path present in GFA as ref, one or three,follow the path or paths selected at the beginning as a reference by recording the sequences. ALT: sequence not present in path, but it present in the centre of bubble.  

@@ -36,11 +36,11 @@ This algorithm works as follows:
 - Take the front item of the queue and add it to the visited list.
 - Create a list of that vertex's adjacent nodes. Add the ones which aren't in the visited list to the back of the queue.
 
-I implement this algorithm because to identify a bubble I need of distance from source from each node. 
+I implemented this algorithm because to identify a bubble I need of distance from source from each node. 
 
 **Bubbles Calling**
 
-A bubble consists of multiple directed unipaths from a vertex v to a vertex u and is commonly caused by a small number of errors in the centre of reads. There have a start and a end.
+A bubble consists of multiple directed unipaths from a vertex]**v** to a vertex **u** and is commonly caused by a small number of errors in the centre of reads. There have a start and a end.
 
 From my script if distance is unique, I'm obtained start and end of bubbles. The center of the bubble is our ALT. 
 
@@ -54,6 +54,10 @@ For each path chosen as REF, I check the alternates for that REF.
 **SNV and INDEL**
 
 Considering all the possible paths, the variants have been called, that is the nodes supported by at least one path, whose sequence is different from the sequence of the corresponding node in the reference considered.
+
+For Deletion if the succ node in the ref is the current node in the current path, it means that. In the current path a node is missing, so there is a deletion respect to the REF.
+
+For Insertion if the succ node in the current path is the current node in the ref, it means that. In the current path there is a node that is missing in the ref, that is an insertion. 
 
 ### 3. Validation VCF
 

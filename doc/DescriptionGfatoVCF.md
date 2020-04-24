@@ -95,6 +95,6 @@ Sequence not present in REF, the center of bubble | ALT
 SNV, INSERTION, DEL | Type
  
 *POS*, for example (NODE1 = ATG) POS is three (lenght of sequence);
-for (NODE2 = AT) POS is five because is the sum of the length of the previous node sequence plus the current node sequence.
+for (NODE2 = AT) POS is five because is the sum of the length of the previous node sequence plus the current node lenght sequence.
 
 Stay tuned for the add of script for calculate Allele Frequency and Fst on graph and for the implementation of this algorithm https://arxiv.org/pdf/1307.7925.pdf! :smile:

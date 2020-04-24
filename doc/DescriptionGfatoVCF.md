@@ -1,4 +1,4 @@
-# Graphical Fragment Assembly(GFA) to Variant Call Format(VCF)
+# Graphical Fragment Assembly (GFA) to Variant Call Format (VCF)
 
 ![](/figures/recapscript.png)
 

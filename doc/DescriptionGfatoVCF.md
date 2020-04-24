@@ -78,7 +78,7 @@ From [sampleOutputpath1.vcf](/result/sampleOutputpath1.vcf) obtained with script
 
 ```
 
-![](figures/Validation.png)
+![](/figures/Validation.png)
 
 From [samplepath3.odgi](/data/samplepath3.odgi) I get [sampleOutputpath3.vcf](/result/sampleOutputpath3.vcf).
 

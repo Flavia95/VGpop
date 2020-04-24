@@ -1,6 +1,6 @@
 # Graphical Fragment Assembly(GFA) to Variant Call Format(VCF)
 
-![](/figures/RecapScript.png)
+![](/figures/recapscript.png)
 
 #### GFA to ODGI
 The first step after run the script [GfatoVcf.py](/VGpop/GfatoVCF.py) is convert GFA format in ODGI format.
@@ -31,7 +31,7 @@ It works as follows:
 - Take the item on top of the stack and add it to the list visited.
 - Create a list of the adjacent nodes of that vertex. Add node that is not in the visited list at the top of the stack.
 
-_I'm starting to the graph and with this algorithm I explore it; As result I'm obtained a tree_.
+_I'm starting to the graph and with this algorithm I explore it; as result I'm obtained a tree_.
 
 **Breadth first Search(BFS)**
 
@@ -65,11 +65,11 @@ For _Deletion_ if the succ node in the REF is the current node in the current pa
 
 For _Insertion_ if the succ node in the current path is the current node in the ref, it means that. In the current path there is a node that is missing in the ref, that is an insertion. 
 
-For _SNV_ if the sequence are different.
+For _SNV_ if the sequences are different.
 
 ### 3. Validation VCF
 
-I use vg tools for working with genome variation graphs for validate VCF obtained from GFA.https://github.com/vgteam/vg 
+I use vg tools for working with genome variation graphs for validate VCF obtained from GFA. https://github.com/vgteam/vg 
 From VCF obtained with script I obtained the same graph that I use from start. 
 
 ```

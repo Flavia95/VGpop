@@ -1,6 +1,6 @@
 # Graphical Fragment Assembly (GFA) to Variant Call Format (VCF)
 
-![](/figures/recapscript.png)
+![](/figures/recapScript.png)
 
 #### GFA to ODGI
 The first step before run the script [GfatoVcf.py](/VGpop/GfatoVCF.py) is convert GFA format in ODGI format.
@@ -67,10 +67,15 @@ For _Insertion_ if the considerate node in the current path is the current node 
 
 For _SNV_ if the sequence are different in the current path respect to the REF.
 
+From [samplepath3.odgi](/data/samplepath3.odgi) I get [sampleOutputpath3.vcf](/result/sampleOutputpath3.vcf).
+
 ### 3. Validation VCF
 
 I use vg tools for working with genome variation graphs for validate VCF obtained from GFA. https://github.com/vgteam/vg 
-From [sampleOutputpath1.vcf](/result/sampleOutputpath1.vcf) obtained with script where considered one path I obtained the same graph that I use from start. 
+In the line 346 ot the script, there is a **break**, uncommenting this, I chose as reference one path and I obtained
+[sampleOutputpath1.vcf](/result/sampleOutputpath1.vcf) for validation. 
+
+From this I obtained the same graph that I use from start. 
 
 ```
 ./vg construct -v SampleOutputPath1.vcf.gz -r ref.fa > VcftoGraph.vg
@@ -79,8 +84,6 @@ From [sampleOutputpath1.vcf](/result/sampleOutputpath1.vcf) obtained with script
 ```
 
 ![](/figures/Validation.png)
-
-From [samplepath3.odgi](/data/samplepath3.odgi) I get [sampleOutputpath3.vcf](/result/sampleOutputpath3.vcf).
 
 GFA | VCF
 ------------ | -------------

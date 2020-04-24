@@ -11,9 +11,11 @@ I use this projection to drive standard population genetic analyzes, and as a me
 [odgi](https://pangenome.github.io/odgi/odgi_docs.html)
 
 **Usage**
+
 python GfatoVcf.py
 
 **Author**
+
 Flavia Villani
 
 

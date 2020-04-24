@@ -8,7 +8,7 @@ I use this projection to drive standard population genetic analyzes, and as a me
 
 **Component required**
 
-[odgi](https://pangenome.github.io/odgi/odgi_docs.html)
+[odgi](https://github.com/vgteam/odgi)
 
 **Usage**
 

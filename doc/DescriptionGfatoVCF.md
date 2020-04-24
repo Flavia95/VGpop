@@ -1,6 +1,6 @@
 # Graphical Fragment Assembly (GFA) to Variant Call Format (VCF)
 
-![](/figures/recapcript.png)
+![](/figures/recapscript.png)
 
 #### GFA to ODGI
 The first step before run the script [GfatoVcf.py](/VGpop/GfatoVCF.py) is convert GFA format in ODGI format.

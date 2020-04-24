@@ -12,9 +12,9 @@ https://pangenome.github.io/odgi/index.html
 odgi build -g graph.gfa -o graph.odgi
 ```
 By example:
-```
+
 odgi build -g [SamplePath3.gfa](/data/SamplePath3.gfa) -o [SamplePath3.odgi](/data/SamplePath3.odgi)
-```
+
 Obtained the odgi format, give it as _input to the script_. 
 
 Description of script:
@@ -46,7 +46,7 @@ _I implemented this algorithm because to identify a bubble I need of distance fr
 
 **Bubbles Calling**
 
-A bubble consists of multiple directed unipaths from a vertex]**v** to a vertex **u** and is commonly caused by a small number of errors in the centre of reads. There have a start and a end. https://www.sciencedirect.com/science/article/pii/S0304397515009147#br0100
+A bubble consists of multiple directed unipaths from a vertex **v** to a vertex **u** and is commonly caused by a small number of errors in the centre of reads. There have a start and a end. https://www.sciencedirect.com/science/article/pii/S0304397515009147#br0100
 
 _From my script if distance is unique, I'm obtained start and end of bubbles. The center of the bubble is our ALT_. 
 
@@ -73,7 +73,7 @@ I use vg tools for working with genome variation graphs for validate VCF obtaine
 From VCF obtained with script I obtained the same graph that I use from start. 
 
 ```
-./vg construct -v [SampleOutputPath3.vcf].gz (/result/SampleOutputPath3.vcf) -r ref.fa > VcftoGraph.vg
+./vg construct -v SampleOutputPath3.vcf.gz -r ref.fa > VcftoGraph.vg
 ./vg view -dp  VcfToGraph.vg | dot -Tpdf -o ValidationGraph.pdf
 
 ```

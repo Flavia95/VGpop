@@ -42,7 +42,7 @@ This works as follows:
 - Take the front item of the queue and add it to the visited list.
 - Create a list of that vertex's adjacent nodes. Add the ones which aren't in the visited list to the back of the queue.
 
-_I implemented this algorithm because to identify a bubble I need of distance from source from each node_ 
+_I implemented this algorithm because to identify a bubble I need of distance from source from each node_. 
 
 **Bubbles Calling**
 
@@ -71,8 +71,9 @@ From [samplepath3.odgi](/data/samplepath3.odgi) I get [sampleOutputpath3.vcf](/r
 
 ### 3. Validation VCF
 
-I use vg tools for working with genome variation graphs for validate VCF obtained from GFA. https://github.com/vgteam/vg 
-In the line 346 ot the script, there is a **break**, uncommenting this, I chose as reference one path and I obtained
+I use vg tools for working with genome variation graphs for validate VCF obtained from GFA. https://github.com/vgteam/vg.
+
+In the line 346 of the script, there is a **break**, uncommenting this, I chose as reference one path and I obtained
 [sampleOutputpath1.vcf](/result/sampleOutputpath1.vcf) for validation. 
 
 From this I obtained the same graph that I use from start. 
@@ -88,11 +89,12 @@ From this I obtained the same graph that I use from start.
 GFA | VCF
 ------------ | -------------
 Path_name                   | CHROM
-Lenght of sequence in a node| POS*
+Lenght of sequence in a node| POS
 Chose a path (or paths) from the beginning by recording sequences | REF
 Sequence not present in REF, the center of bubble | ALT
 SNV, INSERTION, DEL | Type
  
-*POS*, for example (NODE1 = ATG) POS is three (lenght of sequence), (NODE2 = AT) POS is five because is the sum of the length of the previous node sequence plus the current node sequence.
+*POS*, for example (NODE1 = ATG) POS is three (lenght of sequence);
+for (NODE2 = AT) POS is five because is the sum of the length of the previous node sequence plus the current node sequence.
 
 Stay tuned for the add of script for calculate Allele Frequency and Fst on graph and for the implementation of this algorithm https://arxiv.org/pdf/1307.7925.pdf! :smile:

@@ -45,7 +45,7 @@ _I implemented this algorithm because to identify a bubble I need of distance fr
 
 **Bubbles Calling**
 
-A [bubble] (https://www.sciencedirect.com/science/article/pii/S0304397515009147#br0100) consists of multiple directed unipaths from a vertex **v** to a vertex **u** and is commonly caused by a small number of errors in the centre of reads. It is format from a start and a end.
+A [bubble](https://www.sciencedirect.com/science/article/pii/S0304397515009147#br0100) consists of multiple directed unipaths from a vertex **v** to a vertex **u** and is commonly caused by a small number of errors in the centre of reads. It is format from a start and a end.
 
 _From my script if distance is unique, I'm obtained start and end of bubbles. The center of the bubble is our ALT_. 
 

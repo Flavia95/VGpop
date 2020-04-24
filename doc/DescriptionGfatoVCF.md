@@ -70,13 +70,16 @@ For _SNV_ if the sequences are different.
 ### 3. Validation VCF
 
 I use vg tools for working with genome variation graphs for validate VCF obtained from GFA. https://github.com/vgteam/vg 
-From VCF obtained with script I obtained the same graph that I use from start. 
+From [sampleOutputpath1.vcf](/result/sampleOutputpath1.vcf) obtained with script where considered one path I obtained the same graph that I use from start. 
 
 ```
-./vg construct -v SampleOutputPath3.vcf.gz -r ref.fa > VcftoGraph.vg
-./vg view -dp  VcfToGraph.vg | dot -Tpdf -o ValidationGraph.pdf
+./vg construct -v SampleOutputPath1.vcf.gz -r ref.fa > VcftoGraph.vg
+./vg view -dp VcftoGraph.vg | dot -Tpdf -o ValidationGraph.pdf
 
 ```
+
+![](figures/Validation.png)
+
 From [samplepath3.odgi](/data/samplepath3.odgi) I get [sampleOutputpath3.vcf](/result/sampleOutputpath3.vcf).
 
 GFA | VCF

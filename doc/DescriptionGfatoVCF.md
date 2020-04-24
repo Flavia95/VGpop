@@ -69,11 +69,14 @@ For _SNV_ if the sequence are different in the current path respect to the REF.
 
 From [samplepath3.odgi](/data/samplepath3.odgi) I get [sampleOutputpath3.vcf](/result/sampleOutputpath3.vcf).
 
+From time to time, the path x is chosen as the REF and the other two are ALT, then y and z as the ref.
+
 ### 3. Validation VCF
 
 I use vg tools for working with genome variation graphs for validate VCF obtained from GFA. https://github.com/vgteam/vg.
 
-In the line 346 of the script, there is a **break**, uncommenting this, I chose as reference one path and I obtained
+For now to be able to validate VCF, the first path is the REF. In the next updates it will be possible to choose the reference path.
+In the line 346 of the script, there is a **break**, uncommenting this, I chose as reference the first path and I obtained
 [sampleOutputpath1.vcf](/result/sampleOutputpath1.vcf) for validation. 
 
 From this I obtained the same graph that I use from start. 

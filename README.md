@@ -7,7 +7,14 @@ The aim is drive standard population genetic analyses using pangenomic data mode
 I use this projection to drive standard population genetic analyzes, and as a mechanism to validation results that I obtain from pangenome graph based population genetic analyzes which I am designing.
 
 **Component required**
-<odgi> https://github.com/vgteam/odgi
+
+[odgi](https://pangenome.github.io/odgi/odgi_docs.html)
+
+**Usage**
+python GfatoVcf.py
+
+**Author**
+Flavia Villani
 
 
 

@@ -1,8 +1,8 @@
 import sys
-sys.path.append('odgi/lib')  
+sys.path.append('/odgi/lib')  
 import odgi
 g = odgi.graph()
-g.load("samplePath3.odgi")
+g.load("/data/samplePath3.odgi")
 
 def process_step(s):
     h = g.get_handle_of_step(s) # gets the handle (both node and orientation) of the step
@@ -12,7 +12,7 @@ def process_step(s):
 
 path_to_steps_dict = {}
 
-def create_into_dict(path, step):       #dizionario nodo id come chiave e come valore un altro dizionario che ha come chiave il nome del path
+def create_into_dict(path, step):       #dict with node_id as key and as value another dict that have as key name of path 
     path_name = g.get_path_name(path)
     if path_name not in path_to_steps_dict:
         path_to_steps_dict[path_name] = []
@@ -319,7 +319,7 @@ for current_ref in path_to_steps_dict.keys():
                         continue
                     else:
                         node_seq_ref = g.get_sequence(g.get_handle(current_node_id_ref))
-                        node_seq_path = g.get_sequence(g.get_handle(current_node_id_path))
+                        node_seq_path = g.get_sequence(g.get_handle(current_node_id_path)) #if sequence is different = SNV
 
                         if node_seq_ref == node_seq_path:
                             print('REFERENCE')
@@ -343,7 +343,7 @@ for current_ref in path_to_steps_dict.keys():
     
         
 
-    break  #This is important because if you start with a graph that have three paths and you only want one path in VCF and not three, not comment break
+    #break  #This for obtained one path 
 
 
 
@@ -358,7 +358,7 @@ vcf_list = sorted(vcf_list, key=lambda x: (x[0], int(x[1])), reverse=False)
 
 import time
 
-with open('sample.vcf', 'w') as fw:
+with open('SampleOutputpath3.vcf', 'w') as fw:
     fw.write('##fileformat=VCFv4.2\n')
     fw.write('##fileDate=' + time.strftime("%Y%m%d") + '\n')   #generation date of vcf create 
     fw.write('##reference=x.fa\n')

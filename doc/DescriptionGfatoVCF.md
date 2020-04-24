@@ -42,7 +42,7 @@ This works as follows:
 - Take the front item of the queue and add it to the visited list.
 - Create a list of that vertex's adjacent nodes. Add the ones which aren't in the visited list to the back of the queue.
 
-_I implemented this algorithm because to identify a bubble I need of distance from source from each node_ 
+_I implemented this algorithm because to identify a bubble I need of distance from source from each node_. 
 
 **Bubbles Calling**
 
@@ -67,10 +67,16 @@ For _Insertion_ if the considerate node in the current path is the current node 
 
 For _SNV_ if the sequence are different in the current path respect to the REF.
 
+From [samplepath3.odgi](/data/samplepath3.odgi) I get [sampleOutputpath3.vcf](/result/sampleOutputpath3.vcf).
+
 ### 3. Validation VCF
 
-I use vg tools for working with genome variation graphs for validate VCF obtained from GFA. https://github.com/vgteam/vg 
-From [sampleOutputpath1.vcf](/result/sampleOutputpath1.vcf) obtained with script where considered one path I obtained the same graph that I use from start. 
+I use vg tools for working with genome variation graphs for validate VCF obtained from GFA. https://github.com/vgteam/vg.
+
+In the line 346 of the script, there is a **break**, uncommenting this, I chose as reference one path and I obtained
+[sampleOutputpath1.vcf](/result/sampleOutputpath1.vcf) for validation. 
+
+From this I obtained the same graph that I use from start. 
 
 ```
 ./vg construct -v SampleOutputPath1.vcf.gz -r ref.fa > VcftoGraph.vg
@@ -80,16 +86,15 @@ From [sampleOutputpath1.vcf](/result/sampleOutputpath1.vcf) obtained with script
 
 ![](/figures/Validation.png)
 
-From [samplepath3.odgi](/data/samplepath3.odgi) I get [sampleOutputpath3.vcf](/result/sampleOutputpath3.vcf).
-
 GFA | VCF
 ------------ | -------------
 Path_name                   | CHROM
-Lenght of sequence in a node| POS*
+Lenght of sequence in a node| POS
 Chose a path (or paths) from the beginning by recording sequences | REF
 Sequence not present in REF, the center of bubble | ALT
 SNV, INSERTION, DEL | Type
  
-*POS*, for example (NODE1 = ATG) POS is three (lenght of sequence), (NODE2 = AT) POS is five because is the sum of the length of the previous node sequence plus the current node sequence.
+*POS*, for example (NODE1 = ATG) POS is three (lenght of sequence);
+for (NODE2 = AT) POS is five because is the sum of the length of the previous node sequence plus the current node lenght sequence.
 
 Stay tuned for the add of script for calculate Allele Frequency and Fst on graph and for the implementation of this algorithm https://arxiv.org/pdf/1307.7925.pdf! :smile:

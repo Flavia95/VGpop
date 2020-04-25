@@ -1,8 +1,8 @@
 import sys
-sys.path.append('/odgi/lib')  
+sys.path.append('/path/odgi/lib')  
 import odgi
 g = odgi.graph()
-g.load("/data/samplePath3.odgi")
+g.load('./data/samplePath3.odgi')
 
 def process_step(s):
     h = g.get_handle_of_step(s) # gets the handle (both node and orientation) of the step

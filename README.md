@@ -10,7 +10,7 @@ I use this projection to drive standard population genetic analyzes, and as a me
 
 ODGI
 
-*Download from GITHUB*
+*Building from GiTHub*
 
 - [odgi](https://github.com/vgteam/odgi)
 

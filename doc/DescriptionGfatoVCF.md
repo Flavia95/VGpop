@@ -72,7 +72,7 @@ From time to time, the path x is chosen as the REF and the other two are ALT, th
 
 ### 3. Validation VCF
 
-I use vg tools for working with genome variation graphs for validate VCF obtained from GFA. https://github.com/vgteam/vg.
+I use [vg](https://github.com/vgteam/vg) tool for working with genome variation graphs for validate VCF obtained from GFA. 
 
 For now to be able to validate VCF, the first path is the REF. In the next updates it will be possible to choose the reference path.
 In the line 346 of the script, there is a **break**, uncommenting this, I chose as reference the first path and I obtained

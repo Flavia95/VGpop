@@ -1,5 +1,5 @@
 import sys
-sys.path.append('/path/odgi/lib')  
+sys.path.append('/path/odgi/lib') #if building odgi from GitHub, this is not necessary 
 import odgi
 g = odgi.graph()
 g.load('./data/samplePath3.odgi')

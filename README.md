@@ -14,7 +14,7 @@ ODGI
 
 - [odgi](https://github.com/vgteam/odgi)
 
-*Download from Biconda*
+*Download from Bioconda*
 
 - [odgi](https://anaconda.org/bioconda/odgi)
 

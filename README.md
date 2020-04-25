@@ -10,13 +10,9 @@ I use this projection to drive standard population genetic analyzes, and as a me
 
 ODGI
 
-- *Building from GitHub*
+- *Building from GitHub* [odgi](https://github.com/vgteam/odgi)
 
-[odgi](https://github.com/vgteam/odgi)
-
-- *Download from Bioconda*
-
-[odgi](https://anaconda.org/bioconda/odgi)
+- *Download from Bioconda* [odgi](https://anaconda.org/bioconda/odgi)
 
 **Usage**
 

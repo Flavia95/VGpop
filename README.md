@@ -8,7 +8,15 @@ I use this projection to drive standard population genetic analyzes, and as a me
 
 **Component required**
 
-[odgi](https://github.com/vgteam/odgi)
+ODGI
+
+*Download from GITHUB*
+
+- [odgi](https://github.com/vgteam/odgi)
+
+*Download from Biconda*
+
+- [odgi](https://anaconda.org/bioconda/odgi)
 
 **Usage**
 

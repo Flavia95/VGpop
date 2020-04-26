@@ -12,7 +12,7 @@ odgi build -g graph.gfa -o graph.odgi
 ```
 By example:
 
-odgi build -g [SamplePath3.gfa](/data/SamplePath3.gfa) -o [SamplePath3.odgi](/data/SamplePath3.odgi)
+odgi build -g [samplePath3.gfa](/data/SamplePath3.gfa) -o [samplePath3.odgi]
 
 Obtained the odgi format, give it as _input to the script_. 
 

@@ -33,7 +33,7 @@ The odgi format as input to the script.
 
 #### 2. With *-path* specify the path of the odgi library and with *-input* specify the input file
  ```
-python GfatoVcf.py -path /../odgi/lib/ -input .../samplePath3.odgi
+python GfatoVcf.py -path /../odgi/lib/ -input /../samplePath3.odgi
 ```
 ### Description of the script 
 

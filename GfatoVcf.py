@@ -2,13 +2,13 @@ import sys
 import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument('-path',type=str, help='specific path where is lib odgi', required=True)
+parser.add_argument('-input',type=str, help ='specific input',required=True)
 args = parser.parse_args()
 sys.path.append(args.path)  
-#sys.path.append('/odgi/lib') #if building odgi from GitHub, this is necessary 
- 
+
 import odgi
 g = odgi.graph()
-g.load('./data/samplePath3.odgi')
+g.load(args.input)
 
 def process_step(s):
     h = g.get_handle_of_step(s)  #gets the handle (both node and orientation) of the step

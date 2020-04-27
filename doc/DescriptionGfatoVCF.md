@@ -81,7 +81,7 @@ In the line 352 of the script, there is a **break**, uncommenting this, I chose 
 From this I obtained the same graph that I use from start. 
 
 ```
-./vg construct -v SampleOutputPath1.vcf.gz -r ref.fa > VcftoGraph.vg
+./vg construct -v SampleOutputpath1.vcf.gz -r ref.fa > VcftoGraph.vg
 ./vg view -dp VcftoGraph.vg | dot -Tpdf -o ValidationGraph.pdf
 
 ```

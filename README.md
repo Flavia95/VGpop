@@ -25,9 +25,9 @@ Before run the script [GfatoVcf.py](GfatoVcf.py), you need to:
 #### 1. Convert the GFA format to the ODGI format
 
 By example:
-```
-odgi build -g samplePath3.gfa -o ('./data/samplePath3.odgi')
-```
+
+odgi build -g [samplePath3.gfa](/data/samplePath3.gfa) -o ('./data/samplePath3.odgi')
+
 The odgi format as input to the script.
 
 #### 2. With *-path* specify the path of the odgi library

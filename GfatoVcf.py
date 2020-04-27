@@ -5,7 +5,7 @@ parser.add_argument('-path',type=str, help='specific path where is lib odgi', re
 args = parser.parse_args()
 sys.path.append(args.path)  
 #sys.path.append('/odgi/lib') #if building odgi from GitHub, this is necessary 
-sys.path.append('/path/odgi/lib') #if building odgi from GitHub, it is necessary 
+ 
 import odgi
 g = odgi.graph()
 g.load('./data/samplePath3.odgi')

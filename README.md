@@ -31,9 +31,9 @@ odgi build -g [samplePath3.gfa](/data/samplePath3.gfa) -o /data/samplePath3.odgi
 
 The odgi format as input to the script.
 
-#### 2. With *-path* specify the path of the odgi library
-```
-python GfatoVcf.py -path /../odgi/lib/
+#### 2. With *-path* specify the path of the odgi library and with *-input* specify the input file
+ ```
+python GfatoVcf.py -path /../odgi/lib/ -input .../samplePath3.odgi
 ```
 ### Description of the script 
 [DescriptionGfatoVcf.md](/doc/DescriptionGfatoVCF.md)

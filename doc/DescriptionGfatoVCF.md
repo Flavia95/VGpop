@@ -3,7 +3,7 @@
 ![](/figures/recapscript.png)
 
 #### GFA to ODGI
-The first step before run the script [GfatoVcf.py](VGpop/GfatoVcf.py) is convert GFA format in ODGI format.
+The first step before run the script [GfatoVcf.py](/VGpop/GfatoVcf.py) is convert GFA format in ODGI format.
 
 [Odgi](https://pangenome.github.io/odgi/index.html) is a tool that manipulate variation graphs, large graph without memory problem.
 

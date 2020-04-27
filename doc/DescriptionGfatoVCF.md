@@ -22,7 +22,7 @@ Description of script:
 
 **Depth first Search (DFS)**
 
-Depth first Search is a recursive algorithm for searching all the vertices of a graph or tree data structure.
+[Depth first Search](https://www.geeksforgeeks.org/depth-first-search-or-dfs-for-a-graph/) is a recursive algorithm for searching all the vertices of a graph or tree data structure.
 This algorithm  mark each vertex as visited.
 
 This works as follows:
@@ -34,7 +34,7 @@ _I'm starting to the graph and with this algorithm I explore it; as result I'm o
 
 **Breadth first Search (BFS)**
 
-Breadth first Search is another recursive algorithm.
+[Breadth first Search](https://www.geeksforgeeks.org/breadth-first-search-or-bfs-for-a-graph/?ref=lbp) is another recursive algorithm.
 
 This works as follows:
 - Start by putting any one of the graph's vertices at the back of a queue.

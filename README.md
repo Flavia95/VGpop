@@ -36,7 +36,7 @@ The odgi format as input to the script.
 python GfatoVcf.py -path /../odgi/lib/
 ```
 ### Description of the script 
-[DescriptionGfatoVcf.md](/doc/DescriptionGfatoVcf.md)
+[DescriptionGfatoVcf.md](/doc/DescriptionGfatoVCF.md)
 
 ### Author
 

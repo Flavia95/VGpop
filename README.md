@@ -27,7 +27,7 @@ Before run the script [GfatoVcf.py](GfatoVcf.py), you need to:
 
 By example:
 
-odgi build -g [samplePath3.gfa](/data/samplePath3.gfa) -o /data/samplePath3.odgi
+odgi build -g [samplePath3.gfa](/data/samplePath3.gfa) -o samplePath3.odgi
 
 The odgi format as input to the script.
 
@@ -36,6 +36,7 @@ The odgi format as input to the script.
 python GfatoVcf.py -path /../odgi/lib/ -input .../samplePath3.odgi
 ```
 ### Description of the script 
+
 [DescriptionGfatoVcf.md](/doc/DescriptionGfatoVCF.md)
 
 ### Author

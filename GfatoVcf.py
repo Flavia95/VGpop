@@ -2,7 +2,7 @@ import sys
 import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument('-path',type=str, help='specific path where is lib odgi', required=True)
-parser.add_argument('-input',type=str, help ='specific input',required=True)
+parser.add_argument('-input',type=str, help ='specific input as format gfa.odgi', required=True)
 args = parser.parse_args()
 sys.path.append(args.path)  
 

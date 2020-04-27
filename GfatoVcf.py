@@ -1,11 +1,16 @@
 import sys
-sys.path.append('/path/odgi/lib') #if building odgi from GitHub, this is not necessary 
+import argparse
+parser = argparse.ArgumentParser()
+parser.add_argument('-path',type=str, help='specific path where is lib odgi', required=True)
+args = parser.parse_args()
+sys.path.append(args.path)  
+#sys.path.append('/odgi/lib') #if building odgi from GitHub, this is necessary 
 import odgi
 g = odgi.graph()
 g.load('./data/samplePath3.odgi')
 
 def process_step(s):
-    h = g.get_handle_of_step(s) # gets the handle (both node and orientation) of the step
+    h = g.get_handle_of_step(s)  #gets the handle (both node and orientation) of the step
     is_rev = g.get_is_reverse(h)
     id = g.get_id(h)
     return str(id) + ("+" if not is_rev else "-")

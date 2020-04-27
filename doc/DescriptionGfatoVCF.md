@@ -66,7 +66,7 @@ For _Insertion_ if the considerate node in the current path is the current node 
 
 For _SNV_ if the sequence are different in the current path respect to the REF.
 
-From [samplepath3.odgi](/data/samplepath3.odgi) I get [sampleOutputpath3.vcf](/result/sampleOutputpath3.vcf).
+From samplepath3.odgi I get [sampleOutputpath3.vcf](/result/sampleOutputpath3.vcf).
 
 From time to time, the path x is chosen as the REF and the other two are ALT, then y and z as the ref.
 

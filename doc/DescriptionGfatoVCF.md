@@ -76,7 +76,7 @@ I use [vg](https://github.com/vgteam/vg) tool for working with genome variation 
 
 For now to be able to validate VCF, the first path is the REF. In the next updates it will be possible to choose the reference path.
 In the line 352 of the script, there is a **break**, uncommenting this, I chose as reference the first path and I obtained
-[sampleOutputpath1.vcf](/result/SampleOutputpath1.vcf) for validation. 
+[SampleOutputpath1.vcf](/result/SampleOutputpath1.vcf) for validation. 
 
 From this I obtained the same graph that I use from start. 
 

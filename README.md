@@ -43,5 +43,9 @@ python GfatoVcf.py -path /../odgi/lib/ -input /../samplePath3.odgi
 
 Flavia Villani
 
+### License
+
+MIT
+
 
 

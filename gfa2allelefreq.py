@@ -251,18 +251,18 @@ for current_ref in path_to_steps_dict.keys():
     ref_path = [int(x[:-1]) for x in path_to_steps_dict[current_ref]]   
 
     for start, end in possible_bubbles_list[:-1]: # not the last element
-        print('ref_path:', ref_path)
-        print('Bubble [', start, ', ', end, ']')
+        #print('ref_path:', ref_path)
+        #print('Bubble [', start, ', ', end, ']')
         start_node_index_in_ref_path = ref_path.index(start)
         all_path_list = []
         print_all_paths(g, start, end, all_path_list)
 
         for path in all_path_list:
-            print('\tPath:', path)
+            #print('\tPath:', path)
             pos_ref = node_id_to_path_and_pos_dict[start][current_ref]+1
             pos_path = pos_ref
 
-            print('Start paths position:', pos_ref)
+            #print('Start paths position:', pos_ref)
 
             max_index = min(len(path), len(ref_path))
             current_index_step_path, current_index_step_ref = (0, 0)
@@ -271,9 +271,9 @@ for current_ref in path_to_steps_dict.keys():
                 current_node_id_path = path[current_index_step_path]
                 current_node_id_ref = ref_path[current_index_step_ref + start_node_index_in_ref_path]
 
-                print(pos_ref, pos_path, '--->', current_node_id_ref, current_node_id_path)
+                #print(pos_ref, pos_path, '--->', current_node_id_ref, current_node_id_path)
                 if current_node_id_ref == current_node_id_path:
-                    print('REFERENCE')
+                    #print('REFERENCE')
                     node_seq = g.get_sequence(g.get_handle(current_node_id_ref))
                     pos_ref += len(node_seq)
                     pos_path = pos_ref
@@ -295,13 +295,13 @@ for current_ref in path_to_steps_dict.keys():
                         key = '_'.join([current_ref, str(pos_path - 1), prec_nod_seq_ref[-1] + node_seq_ref])
                         if key not in stuff_to_alts_dict:
                             stuff_to_alts_dict[key] = set()
-                        stuff_to_alts_dict[key].add(prec_nod_seq_ref[-1] + '_del')
+                        stuff_to_alts_dict[key].add(prec_nod_seq_ref[-1] + '_del_' + str(len(node_id_to_path_and_pos_dict[current_node_id_ref])/len(path_to_steps_dict)))
 
                         pos_ref += len(node_seq_ref)
 
                         current_index_step_ref += 1
                         current_node_id_ref = ref_path[current_index_step_ref + start_node_index_in_ref_path -1]
-                        print('\t', current_node_id_ref)
+                        #print('\t', current_node_id_ref)
                         continue
                     elif succ_node_id_path == current_node_id_ref:
                         #if the succ node in the current path there is a node in the ref, it means that
@@ -315,13 +315,13 @@ for current_ref in path_to_steps_dict.keys():
                         key = '_'.join([current_ref, str(pos_ref-1), prec_nod_seq_ref[-1]])
                         if key not in stuff_to_alts_dict:
                             stuff_to_alts_dict[key] = set()
-                        stuff_to_alts_dict[key].add(prec_nod_seq_ref[-1] + node_seq_path + '_ins')
+                        stuff_to_alts_dict[key].add(prec_nod_seq_ref[-1] + node_seq_path + '_ins_' + str(len(node_id_to_path_and_pos_dict[current_node_id_path])/len(path_to_steps_dict)))
 
                         pos_path += len(node_seq_path)
 
                         current_index_step_path += 1
                         current_node_id_path = path[current_index_step_path]
-                        print('\t', current_node_id_path)
+                        #print('\t', current_node_id_path)
                         continue
                     else:
                         node_seq_ref = g.get_sequence(g.get_handle(current_node_id_ref))
@@ -335,7 +335,7 @@ for current_ref in path_to_steps_dict.keys():
                         key = '_'.join([current_ref, str(pos_path), node_seq_ref])
                         if key not in stuff_to_alts_dict:
                             stuff_to_alts_dict[key] = set()
-                        stuff_to_alts_dict[key].add(node_seq_path + '_snv')
+                        stuff_to_alts_dict[key].add(node_seq_path + '_snv_' + str(len(node_id_to_path_and_pos_dict[current_node_id_path])/len(path_to_steps_dict)))
 
                         pos_ref += len(node_seq_ref)
                         pos_path += len(node_seq_path)
@@ -345,20 +345,22 @@ for current_ref in path_to_steps_dict.keys():
             print('---')        
         #all_path_list.append(path_name,g.get_sequence(g.get_handle(node_id)))
         #print(u_node_id)
-        print('==========================================')
+        #print('==========================================')
     
         
 
-    #break  #I chose as reference the first path
+    break  #I chose as reference the first path
 
 
 
 vcf_list = []
 for chrom_pos_ref, alt_type_set in stuff_to_alts_dict.items():
+    #print(chrom_pos_ref, alt_type_set)
     chrom, pos, ref = chrom_pos_ref.split('_')
     alt_list = [x.split('_')[0] for x in alt_type_set]
-    type_ = set([x.split('_')[1] for x in alt_type_set])
-    vcf_list.append([chrom, pos, '.', ref, ','.join(alt_list), '.', '.', 'TYPE=' + ';TYPE='.join(type_), 'GT', '0|1'])
+    type_ = list([x.split('_')[1] for x in alt_type_set])
+    freq_ = list([x.split('_')[2] for x in alt_type_set])
+    vcf_list.append([chrom, pos, '.', ref, ','.join(alt_list), '.', '.', 'TYPE=' + ','.join(type_) + ';' + 'FREQ=' + ','.join(freq_), 'GT', '0|1'])
 
 vcf_list = sorted(vcf_list, key=lambda x: (x[0], int(x[1])), reverse=False)
 

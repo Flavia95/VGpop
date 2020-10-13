@@ -13,7 +13,7 @@ with open('matrix.tsv', 'r') as f:
     for p in permutations(paths, 2):
         combinpath.append(p)
 
-#2. Obtain num_sequences (n.row) and num_segregating_sites(n.column)   
+#2. Obtain num_sequences (n.row) and num_segregating_sites(n.column), edit it   
 with open('matrix.tsv', 'r') as csvFile:
     reader = csv.reader(csvFile)
     for row in reader:
@@ -35,9 +35,6 @@ print(combinpath)
 #y,z
 #z,x
 #z,y
-
-
-#indice, entrare nella tupla, nella stringa 
 
 #3. Differences between pairwise path and count it. Index for list, tuple.
 count = 0

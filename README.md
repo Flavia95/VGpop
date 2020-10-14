@@ -19,7 +19,9 @@ ODGI
 ### Download
 
 Clone the source locally:
+
 git clone https://github.com/Flavia95/VGpop.git
+
 cd VGpop
 
 #### 1. bubblepop

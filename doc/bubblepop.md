@@ -34,6 +34,22 @@ A [bubble](https://www.sciencedirect.com/science/article/pii/S0304397515009147#b
 Once the pangenome has been decomposed with bubblepop in a tree whose information on the node distance from the root is stored in dictionary.
 Within the dictionary, the beginning and the end nodes of a bubbles are identified by the fact that their distance from the root is unique, i.e. they are the only nodes with specific distance from the root. All other nodes are inner nodes of bubbles and correspond to variable regions of the sequence. Furthermore nodes with the same distance from the root are in the same bubble.
 
+
+![](/figures/bubblepop.png)
+
 **Matrix**
 
-As output we have a matrix, where the rows are the variants and the columns are the paths.
+As output we have a matrix, where the columns are the variants and the rows are the paths.
+
+Paths           | bubble1       | bubble2
+-------------- | ------------- | -------------- 
+pathx         | 0            | 1
+pathy         | 1            | 0
+pathz         | 0            | 1
+
+Number of the sequences: are the number of the paths (rows)
+
+Number of the segregating sites: are the number of variants (columns)
+
+
+

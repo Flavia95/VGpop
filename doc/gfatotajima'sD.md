@@ -6,3 +6,7 @@ It is calculated as the difference between two measures of genetic diversity: th
 where: 
 
 ![](/figures/tajmad.png)
+
+K: avg_num_pairwise_differences
+S: num_segregating_sites
+i: number of sequences

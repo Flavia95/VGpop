@@ -3,20 +3,22 @@ It is calculated as the difference between two measures of genetic diversity: th
 
 ![D=\frac{d}{\sqrt{V(d)}](https://latex.codecogs.com/svg.latex?\Large&space;D=\frac{d}{\sqrt{V(d)})
 ![=\frac{K-\frac{S}{a_1)}}{\sqrt{a_1 S+e_2S(S-1)}}](https://latex.codecogs.com/svg.latex?\Large&space;=\frac{K-\frac{S}{a_1}}{\sqrt{e_1S+e_2S(S-1)}}) 
+
 where: 
 
 ![](/figures/tajmad.png)
 
-k
 The first estimate is the average number of SNPs found in (n choose 2) pairwise comparisons of sequences (i,j) in the sample.
+
+![](/figures/avgpairwisenumber.png)
 
 The second estimate is derived from the expected value of S, the total number of polymorphisms in the sample
 
 ![E(S)={a_1}{{M}](https://latex.codecogs.com/svg.latex?\Large&space;E(S)={a_1}{{M})
 
-where M is:
+where M could be calculate in two mode:
 
-![M=\frac{S}{{(a_1)}](https://latex.codecogs.com/svg.latex?\Large&space;M=\frac{S}{{(a_1)}) or:             
+![M=\frac{S}{{(a_1)}](https://latex.codecogs.com/svg.latex?\Large&space;M=\frac{S}{{(a_1)})              
 
 ![M={4}{{Nu}](https://latex.codecogs.com/svg.latex?\Large&space;M={4}{{Nu})
 
@@ -24,9 +26,11 @@ Tjima's D on Variation Graph:
 
 There are three essential element for calculate it:
 
-K: avg_num_pairwise_differences
-S: num_segregating_sites
-i: num_sequences
+*K*: avgerage number pairwise differences.
+
+*S*: number segregating sites.
+
+*i*: number of sequences.
 
 I'm starting from the output that derived from ***bubblepop***:
 
@@ -62,9 +66,6 @@ z,y           | ('1,0,0', '0,1,1')
  4. Calculate Tajma's D. 
 
 ![D=\frac{avepairwisediff-\frac{numsegrsites}{a_1)}}{\sqrt{a_1 S+e_2S(S-1)}}](https://latex.codecogs.com/svg.latex?\Large&space;D=\frac{avepairwisedif-\frac{numsegrsites}{a_1}}{\sqrt{e_1numsegrsites+e_2numsegrsites(numsegrsites-1)}})  
-
-
-
  
 
 

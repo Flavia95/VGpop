@@ -30,7 +30,7 @@ There are three essential element for calculate it:
 
 *S*: number segregating sites.
 
-*i*: number of sequences.
+*n*: number of sequences.
 
 I'm starting from the output that derived from ***bubblepop***:
 

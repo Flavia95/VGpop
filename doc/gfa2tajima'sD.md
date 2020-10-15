@@ -1,5 +1,5 @@
 [Tajima's-D](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1203831/pdf/ge1233585.pdf) is a population genetic test statistic, 
-It is calculated as the difference between two measures of genetic diversity: the ***average number of pairwise differences*** and the ***number of segregation sites***, each scaled so that they are expected to be the same in an evolving neutral population of constant size. 
+it is calculated as the difference between two measures of genetic diversity: the ***average number of pairwise differences*** and the ***number of segregation sites***, each scaled so that they are expected to be the same in an evolving neutral population of constant size. 
 
 ![D=\frac{d}{\sqrt{V(d)}](https://latex.codecogs.com/svg.latex?\Large&space;D=\frac{d}{\sqrt{V(d)})
 ![=\frac{K-\frac{S}{a_1)}}{\sqrt{a_1 S+e_2S(S-1)}}](https://latex.codecogs.com/svg.latex?\Large&space;=\frac{K-\frac{S}{a_1}}{\sqrt{e_1S+e_2S(S-1)}}) 
@@ -22,7 +22,7 @@ where M could be calculate in two mode:
 
 ![M={4}{{Nu}](https://latex.codecogs.com/svg.latex?\Large&space;M={4}{{Nu})
 
-Tjima's D on Variation Graph:
+#### Tajima's D on Variation Graph:
 
 There are three essential element for calculate it:
 
@@ -59,9 +59,11 @@ z,y           | ('1,0,0', '0,1,1')
     
    * I check each tuple value with each next tuple value.If the value is the same I put True otherwise I put False. I count how many False there are, this is the number of differences as pairwise. For example--> x, y = (True, True, False)
    
-   * Calculate average number pairwise differences: 
+   * Calculate average number pairwise differences (K): 
 
-![K=\frac{numberofdifferences}{{(numberofsequences)}](https://latex.codecogs.com/svg.latex?\Large&space;M=\frac{numberofdifferences}{{(numberofsequences)})      
+![\frac{numberofdifferences}{{(numberofsequences)}](https://latex.codecogs.com/svg.latex?\Large&space;\frac{numberofdifferences}{{(numberofsequences)})
+
+
     
  4. Calculate Tajma's D. 
 

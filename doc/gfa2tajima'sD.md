@@ -51,11 +51,8 @@ Combinations  | Value
 --------------| -------------   
 x,y           | ('0,1,0', '0,1,1')                            
 x,z           | ('0,1,0', '1,0,0')                           
-y,x           | ('0,1,1', '0,1,0')  
 y,z           |  ('0,1,1', '1,0,0')
-z,x           |  ('1,0,0', '0,1,0')
-z,y           | ('1,0,0', '0,1,1')
-    
+
     
    * I check each tuple value with each next tuple value.If the value is the same I put True otherwise I put False. I count how many False there are, this is the number of differences as pairwise. For example--> x, y = (True, True, False)
    

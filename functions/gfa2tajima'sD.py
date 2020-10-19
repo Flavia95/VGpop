@@ -1,69 +1,78 @@
-from itertools import permutations
+from itertools import combinations
 from collections import Counter
 import csv
+import math
 counter = Counter()
 
 combinpath = []
-c=0
-field={}
 
 #1. All possible combination of pairwise paths
+#2. Obtain num_sequences (n.row-->numpath) and num_segregating_sites(n.column-->numvariationsites)  
 with open('matrix.tsv', 'r') as f:
-    paths = (l.strip() for l in f if l.strip())  
-    for p in permutations(paths, 2):
+    paths = [l.strip() for l in f.readlines()]
+
+    num_sequences = len(paths)
+    num_segregating_sites = len(paths[0].split(','))
+    for p in combinations(paths, 2):
         combinpath.append(p)
 
-#2. Obtain num_sequences (n.row) and num_segregating_sites(n.column), edit it   
-with open('matrix.tsv', 'r') as csvFile:
-    reader = csv.reader(csvFile)
-    for row in reader:
-        field[c]=row
-        print(field[c])
-        c=c+1
-
-row=len (field[0])
-column=len(field)
-
-csvFile.close()
-
-print("num_sequences:",row)
-print("num_segregating_sites",column)
+print("num_sequences:",num_sequences)
+print("num_segregating_sites",num_segregating_sites)
 print(combinpath)
+
 #x,y
 #x,z
-#y,x
 #y,z
-#z,x
-#z,y
 
-#3. Differences between pairwise path and count it. Index for list, tuple.
+#3. Check differences between pairwise paths. 
+#Continue if it finds a ","(because would be compared with another and would give true)
+
 count = 0
 
-for i in range(0, len(combinpath)-1): 
-    for j, _ in enumerate(combinpath[i][0]):
-        #print(combinpath[i][0][j], combinpath[i][1][j])
+for i in range(0, len(combinpath)):
+    for j in range(0, len(combinpath[i][0])):
+        if ',' in combinpath[i][1][j]:
+            continue
+
+#4.If values of combinationpaths are not the same, count the differences.
+
         if combinpath[i][0][j] == combinpath[i][1][j]:
+            #print(combinpath[i][0][j], combinpath[i][1][j])
             print(True)
         else:
             count +=1
             print(False)
-            
+
 print("num_differences:",count)
 
-#4. Define avg_num_pairwise_differences
+#5.Define avg_num_pairwise_differences
 
-k = count/row
-print("avg_num_pairwise_differences:",k)
+avg_num_pairwise_differences = count/num_sequences
+print("avg_num_pairwise_differences:",avg_num_pairwise_differences)
 
+# 5.TajmasD
 
+def _tajimas_d(num_sequences, avg_num_pairwise_differences, num_segregating_sites):
+    a1 = sum([1.0/i for i in range(1, num_sequences)])
+    a2 = sum([1.0/(i**2) for i in range(1, num_sequences)])
+    b1 = float(num_sequences+1)/(3*(num_sequences-1))
+    b2 = float(2 * ( (num_sequences**2) + num_sequences + 3 )) / (9*num_sequences*(num_sequences-1))
+    c1 = b1 - 1.0/a1
+    c2 = b2 - float(num_sequences+2)/(a1 * num_sequences) + float(a2)/(a1 ** 2)
+    e1 = float(c1) / a1
+    e2 = float(c2) / ((a1**2) + a2)
 
-#def _avg_num_pairwise_differences(num_differences,num_sequences):
-    """
-    Returns $k$ (Tajima 1983; Wakely 1996), calculated for a set of sequences:
+    D = (
+        float(avg_num_pairwise_differences - (float(num_segregating_sites)/a1))
+        / math.sqrt(
+            (e1 * num_segregating_sites )
+          + ((e2 * num_segregating_sites) * (num_segregating_sites-1) ))
+        )
+    return D
 
-    k = \frac{\right(\sum \sum \k_{ij}\left)}{n \choose 2}
+def main(): 
 
-    where $k_{ij}$ is the number of pairwise differences between the
-    $i$th and $j$th sequence, and $n$ is the number of DNA sequences
-    sampled.
-    """
+    print(_tajimas_d(num_sequences, avg_num_pairwise_differences, num_segregating_sites)) 
+
+if __name__ == "__main__":
+    main()

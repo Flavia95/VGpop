@@ -15,7 +15,6 @@ ODGI
 
 - Download from *Bioconda* [odgi](https://anaconda.org/bioconda/odgi)
 
-
 ### Download
 
 Clone the source locally:
@@ -23,9 +22,8 @@ Clone the source locally:
 git clone https://github.com/Flavia95/VGpop.git
 cd VGpop
 ```
-#### 1. bubblepop
 
-#### 2. gfa2vcf
+#### 1. gfa2vcf 
 
 Before run the script GfatoVcf.py, you need to:
 1. Convert the GFA format to the ODGI format
@@ -40,12 +38,22 @@ The odgi format as input to the script.
 ```
 python GfatoVcf.py -path /../odgi/lib/ -input /../samplePath3.odgi
 ```
-Description of the script:
-DescriptionGfatoVcf.md
 
-#### 3. gfa2tajima
+#### 2. bubblepop
 
-arg1= spiegazione arg2= average number of pairwise differences (avePairDiff)
+#### 3. allelfreq
+
+#### 4. num_sequences
+
+#### 5. num_segregating_sites
+
+#### 6. count_differences
+
+#### 7. avepairdiff
+
+#### 8. tajimas_d
+        arg1:
+        arg2: avepairdiff
 
 ### Author
 
@@ -54,6 +62,3 @@ Flavia Villani
 ### License
 
 MIT
-
-
-

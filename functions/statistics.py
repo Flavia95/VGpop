@@ -1,6 +1,6 @@
 import math
 import sys
-sys.path.append("Lab/vgpop/script")
+sys.path.append("./functions")
 import vgpop 
 from vgpop import num_sequences
 from vgpop import avg_num_pairwise_differences

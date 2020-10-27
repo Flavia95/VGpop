@@ -5,19 +5,19 @@ import collections
 with open('matrix.tsv', 'r') as f:
     matrix = [l.strip() for l in f.readlines()]
 
-#1. Return the rows of the matrix 
+#1. Return the rows of the matrix (paths=sequences of the VG).
 def num_sequences(matrix):
 	num_sequences = len(matrix)
 
 	return num_sequences
 
-#2. Return the column of matrix (polymorphic sites of the VG)
+#2. Return the columns of matrix (polymorphic sites of the VG).
 def num_segregating_sites(matrix):
     num_segregating_sites = len(matrix[0].split(','))
 
     return num_segregating_sites
 
-#3. Return allele frequency
+#3. Return allele frequencies.
 def freqalle(collections):
     allelfreq = []
     for line in matrix:
@@ -35,27 +35,7 @@ def freqalle(collections):
     return allelfreq
 
 
-#4. Return genotype frequency
-def freqgeno(collections):
-    counter = Counter()
-    freqgeno = []
-
-    for line in matrix:
-        no_comma = []
-        for c in line:
-            if c == ',':
-                continue
-            no_comma.append(c)
-
-            combinseq = (list(combinations(no_comma,2)))
-            occurrencesgeno = collections.Counter(combinseq)
-            numerototgeno = (sum(occurrencesgeno.values()))
-
-        for key, value in occurrencesgeno.items():
-            freqgeno.append(value/numerototgeno)
-    return freqgeno
-
-#5. Returns pair of values: total number of pairwise differences observed between all sequences
+#4. Returns total number of pairwise differences observed between all sequences.
 def count_differences(matrix):
     counter = Counter()
     combinpath = []
@@ -80,7 +60,7 @@ def count_differences(matrix):
     return count
 
 
-#6. Return the number of pairwise differences between the sequences and the number of DNA sequences sampled.
+#5. Return the number of pairwise differences between the sequences and the number of DNA sequences sampled.
 def avg_num_pairwise_differences(matrix):
     avg_num_pairwise_differences = count_differences(matrix)/num_sequences(matrix)
     return avg_num_pairwise_differences

@@ -6,12 +6,11 @@ from vgpop import num_sequences
 from vgpop import avg_num_pairwise_differences
 from vgpop import num_segregating_sites
 
-# 5.TajmasD
 
 with open('matrix.tsv', 'r') as f:
     matrix = [l.strip() for l in f.readlines()]
-
-
+    
+# 6.TajmasD    
 def _tajimas_d(num_sequences, avg_num_pairwise_differences, num_segregating_sites):
     a1 = sum([1.0/i for i in range(1, num_sequences)])
     print(a1)
@@ -35,15 +34,12 @@ def _tajimas_d(num_sequences, avg_num_pairwise_differences, num_segregating_site
 
 
 def main():
-    #print(freqgeno(collections)) 
-    #print(freqalle(collections))
     print(num_sequences(matrix))
     print(num_segregating_sites(matrix))
     print(avg_num_pairwise_differences(matrix))
     print(_tajimas_d(num_sequences(matrix), num_segregating_sites(matrix), avg_num_pairwise_differences(matrix))) 
    
-    
-    
+       
 if __name__ == "__main__":
     main()
 

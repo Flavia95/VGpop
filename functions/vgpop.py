@@ -18,7 +18,7 @@ def num_segregating_sites(matrix):
     return num_segregating_sites
 
 #3. Return allele frequencies.
-def freqalle(collections):
+def freqalle(matrix,collections):
     allelfreq = []
     for line in matrix:
         no_comma = []

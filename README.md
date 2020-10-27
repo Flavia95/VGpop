@@ -22,9 +22,14 @@ Clone the source locally:
 git clone https://github.com/Flavia95/VGpop.git
 cd VGpop
 ```
-##### [gfatovcf](/doc/gfatovcf.md) 
+#### SCRIPT
 
-Before run the script GfatoVcf.py, you need to:
+- [gfatovcf](/doc/gfatovcf.md)
+
+- [bubblepop](/doc/bubblepop.md)
+
+Before run the script GfatoVcf.py and bubblepop.py, you need to:
+
 1. Convert the GFA format to the ODGI format
 
 By example:
@@ -37,9 +42,6 @@ The odgi format as input to the script.
 ```
 python GfatoVcf.py -path /../odgi/lib/ -input /../samplePath3.odgi
 ```
-
-##### [bubblepop](/doc/bubblepop.md)
-
 #### FUNCTIONS
 
 These functions are [here](/functions/utils.py):

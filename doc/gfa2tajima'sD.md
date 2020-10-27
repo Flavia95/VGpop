@@ -50,12 +50,9 @@ Where:
 
 3. [Average number pairwise differences](/functions/utils.py#63): 
 
-![\frac{count_differences}{{(num_sequences)}](https://latex.codecogs.com/svg.latex?\Large&space;\frac{count_differences}{{(num_sequences)})
+![\frac{countdifferences}{{(numsequences)}](https://latex.codecogs.com/svg.latex?\Large&space;\frac{count_differences}{{(num_sequences)})
 
   
- 4. [Calculate Tajma's D](/function/statistics.py#14). 
+ 4. [Calculate Tajma's D](/functions/statistics.py#14). 
 
 ![D=\frac{avepairwisediff-\frac{numsegrsites}{a_1)}}{\sqrt{a_1 S+e_2S(S-1)}}](https://latex.codecogs.com/svg.latex?\Large&space;D=\frac{avepairwisedif-\frac{numsegrsites}{a_1}}{\sqrt{e_1numsegrsites+e_2numsegrsites(numsegrsites-1)}})  
- 
-
-

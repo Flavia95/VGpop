@@ -1,10 +1,10 @@
 import math
 import sys
 sys.path.append("./functions")
-import vgpop 
-from vgpop import num_sequences
-from vgpop import avg_num_pairwise_differences
-from vgpop import num_segregating_sites
+import utils 
+from utils import num_sequences
+from utils import avg_num_pairwise_differences
+from utils import num_segregating_sites
 
 
 with open('matrix.tsv', 'r') as f:
@@ -31,8 +31,6 @@ def _tajimas_d(num_sequences, avg_num_pairwise_differences, num_segregating_site
     return D
 
 
-
-
 def main():
     print(num_sequences(matrix))
     print(num_segregating_sites(matrix))
@@ -42,5 +40,4 @@ def main():
        
 if __name__ == "__main__":
     main()
-
     

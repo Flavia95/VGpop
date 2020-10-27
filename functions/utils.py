@@ -18,7 +18,7 @@ def num_segregating_sites(matrix):
     return num_segregating_sites
 
 #3. Return allele frequencies.
-def freqalle(matrix,collections):
+def allele_freq(matrix,collections):
     allelfreq = []
     for line in matrix:
         no_comma = []
@@ -51,11 +51,10 @@ def count_differences(matrix):
                 continue
 
             if combinpath[i][0][j] == combinpath[i][1][j]:
-                #print(combinpath[i][0][j], combinpath[i][1][j])
                 print(True)
             else:
                 count +=1
-                #print(False)    
+                print(False)    
 
     return count
 
@@ -64,3 +63,18 @@ def count_differences(matrix):
 def avg_num_pairwise_differences(matrix):
     avg_num_pairwise_differences = count_differences(matrix)/num_sequences(matrix)
     return avg_num_pairwise_differences
+
+'''
+def main():
+
+    print(num_sequences(matrix))
+    print(num_segregating_sites(matrix))
+    print(count_differences(matrix))
+    print(allele_freq(matrix,collections))
+    print(avg_num_pairwise_differences(matrix))
+
+
+
+if __name__ == "__main__":
+    main()
+'''    

@@ -41,19 +41,25 @@ python GfatoVcf.py -path /../odgi/lib/ -input /../samplePath3.odgi
 
 #### 2. bubblepop
 
-#### 3. allelfreq
+#### 3. freqalle
+        arg1: collections
 
 #### 4. num_sequences
+        arg1: matrix
 
 #### 5. num_segregating_sites
+        arg1: matrix
 
 #### 6. count_differences
+        arg1: matrix
 
-#### 7. avepairdiff
+#### 7. avg_num_pairwise_differences
+        arg1: matrix
 
 #### 8. tajimas_d
-        arg1:
-        arg2: avepairdiff
+        arg1: num_sequences
+        arg2: num_segregating_sites
+        arg3: avg_num_pairwise_differences 
 
 ### Author
 

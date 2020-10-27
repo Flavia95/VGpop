@@ -15,12 +15,21 @@ The allele frequency is the fraction of all the occurrences i of that allele and
 
 **Allele frequencies on Variation Graph**:
 
-1. Starting from the output that derived from bubblepop where the number of sequences are the number of rows in a matrix and number of segregation sites the number of the columns.
+I'm starting from the output that derived from ***bubblepop***:
+
+Paths         | pos1        | pos2        | pos3
+--------------| -------------  | -------------- |---------
+pathx         | 0              | 1              | 0
+pathy         | 0              | 1              | 1
+pathz         | 1              | 0              | 0
+
+Where [number of sequences](/functions/utils.py#L9) is number of rows in a matrix and [number of segregation sites](/functions/utils.py#L15)number of the columns in a matrix.
+The next step is calculate the total number of pairwise differences observed between all sequences.
 
 2. For each row (sequence) I calculate number of occurences of allele, number of times an allele is found. 
 
 3. For each row I calculate the sum of number of occurences.
 
-4. Return [allele_freq](/functions/utils.py)
+4. Return [allele_freq](/functions/utils.py#L21)
 
 ![f_A=\frac{n_occurencesallele}{{(totalnumber)}](https://latex.codecogs.com/svg.latex?\Large&space;f_A=\frac{n_occurencesallele}{{(totalnumber)})

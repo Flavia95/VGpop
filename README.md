@@ -22,8 +22,9 @@ Clone the source locally:
 git clone https://github.com/Flavia95/VGpop.git
 cd VGpop
 ```
+#### FUNCTIONS
 
-#### 1. gfa2vcf 
+##### 1. gfa2vcf 
 
 Before run the script GfatoVcf.py, you need to:
 1. Convert the GFA format to the ODGI format
@@ -39,24 +40,25 @@ The odgi format as input to the script.
 python GfatoVcf.py -path /../odgi/lib/ -input /../samplePath3.odgi
 ```
 
-#### 2. bubblepop
+##### 2. bubblepop
 
-#### 3. freqalle
-        arg1: collections
-
-#### 4. num_sequences
+##### 3. freqalle
+        arg1: matrix
+        arg2: collections
+        
+##### 4. num_sequences
         arg1: matrix
 
-#### 5. num_segregating_sites
+##### 5. num_segregating_sites
         arg1: matrix
 
-#### 6. count_differences
+##### 6. count_differences
         arg1: matrix
 
-#### 7. avg_num_pairwise_differences
+##### 7. avg_num_pairwise_differences
         arg1: matrix
 
-#### 8. tajimas_d
+##### 8. tajimas_d
         arg1: num_sequences
         arg2: num_segregating_sites
         arg3: avg_num_pairwise_differences 

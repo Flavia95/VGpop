@@ -42,7 +42,7 @@ python GfatoVcf.py -path /../odgi/lib/ -input /../samplePath3.odgi
 
 ##### 2. bubblepop
 
-##### 3. freqalle
+##### 3. allele_freq
         arg1: matrix
         arg2: collections
         

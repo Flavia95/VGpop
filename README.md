@@ -28,7 +28,7 @@ cd VGpop
 
 - [bubblepop](/doc/bubblepop.md)
 
-Before run the script GfatoVcf.py and bubblepop.py, you need to:
+Before run the script [GfatoVcf.py](/script/GfatoVcf.py) and [bubblepop.py](/script/bubblepop.py), you need to:
 
 1. Convert the GFA format to the ODGI format
 
@@ -46,11 +46,7 @@ python GfatoVcf.py -path /../odgi/lib/ -input /../samplePath3.odgi
 
 These functions are [here](/functions/utils.py):
 
-<<<<<<< HEAD
-##### 3. allele_freq
-=======
 ##### 1. [allele_freq](/doc/allele_freq.md)
->>>>>>> 87f63ad184b2449e4501ffd82125e35cef634c8c
         arg1: matrix
         arg2: collections
         
@@ -65,6 +61,7 @@ These functions are [here](/functions/utils.py):
 
 ##### 5. avg_num_pairwise_differences
         arg1: matrix
+
 These functions are [here](/functions/statistics.py):
 
 ##### 6. [tajimas_d](/doc/tajimas_d.md)

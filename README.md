@@ -22,11 +22,14 @@ Clone the source locally:
 git clone https://github.com/Flavia95/VGpop.git
 cd VGpop
 ```
-#### FUNCTIONS
+#### SCRIPT
 
-##### 1. gfa2vcf 
+- [gfatovcf](/doc/gfatovcf.md)
 
-Before run the script GfatoVcf.py, you need to:
+- [bubblepop](/doc/bubblepop.md)
+
+Before run the script GfatoVcf.py and bubblepop.py, you need to:
+
 1. Convert the GFA format to the ODGI format
 
 By example:
@@ -39,29 +42,37 @@ The odgi format as input to the script.
 ```
 python GfatoVcf.py -path /../odgi/lib/ -input /../samplePath3.odgi
 ```
+#### FUNCTIONS
 
-##### 2. bubblepop
+These functions are [here](/functions/utils.py):
 
+<<<<<<< HEAD
 ##### 3. allele_freq
+=======
+##### 1. [allele_freq](/doc/allele_freq.md)
+>>>>>>> 87f63ad184b2449e4501ffd82125e35cef634c8c
         arg1: matrix
         arg2: collections
         
-##### 4. num_sequences
+##### 2. num_sequences
         arg1: matrix
 
-##### 5. num_segregating_sites
+##### 3. num_segregating_sites
         arg1: matrix
 
-##### 6. count_differences
+##### 4. [count_differences](/doc/count_differences.md)
         arg1: matrix
 
-##### 7. avg_num_pairwise_differences
+##### 5. avg_num_pairwise_differences
         arg1: matrix
+These functions are [here](/functions/statistics.py):
 
-##### 8. tajimas_d
+##### 6. [tajimas_d](/doc/tajimas_d.md)
         arg1: num_sequences
         arg2: num_segregating_sites
         arg3: avg_num_pairwise_differences 
+   
+##### 7. gfa2fst
 
 ### Author
 

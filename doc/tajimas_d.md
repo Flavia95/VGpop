@@ -26,7 +26,7 @@ where M could be calculate in two mode:
 
 There are three essential element for calculate it:
 
-*K*: avgerage number pairwise differences.
+*K*: average number pairwise differences.
 
 *S*: number segregating sites.
 
@@ -40,31 +40,19 @@ pathx         | 0              | 1              | 0
 pathy         | 0              | 1              | 1
 pathz         | 1              | 0              | 0
 
-1. Number of sequences: number of the paths in a graph, i.e number of rows in a matrix.
-2. Number of segregation sites: number of the variable sites in a graph, i.e number of the columns in a matrix.
+Where:
 
-3.  Number of average number pairwise differences
-     
-   * With itertools I get all possible combination of paths as pairwise.
-    
-Combinations  | Value                  
---------------| -------------   
-x,y           | ('0,1,0', '0,1,1')                            
-x,z           | ('0,1,0', '1,0,0')                           
-y,z           |  ('0,1,1', '1,0,0')
+1. [Number of sequences](/functions/utils.py#L9) is number of rows in a matrix i.e number of the paths in the VG.
 
-    
-   * I check each tuple value with each next tuple value.If the value is the same I put True otherwise I put False. I count how many False there are, this is the number of differences as pairwise. For example--> x, y = (True, True, False)
-   
-   * Calculate average number pairwise differences (K): 
+2. [Number of segregation sites](/functions/utils.py#L15) number of the columns in a matrix i.e number of the variable sites in the VG.
 
-![\frac{numberofdifferences}{{(numberofsequences)}](https://latex.codecogs.com/svg.latex?\Large&space;\frac{numberofdifferences}{{(numberofsequences)})
+3. [Count differences](doc/count_differences.md) on VG.
 
+3. [Average number pairwise differences](/functions/utils.py#63): 
 
-    
- 4. Calculate Tajma's D. 
+![\frac{countdifferences}{{(numsequences)}](https://latex.codecogs.com/svg.latex?\Large&space;\frac{count_differences}{{(num_sequences)})
+
+  
+ 4. [Calculate Tajma's D](/functions/statistics.py#14). 
 
 ![D=\frac{avepairwisediff-\frac{numsegrsites}{a_1)}}{\sqrt{a_1 S+e_2S(S-1)}}](https://latex.codecogs.com/svg.latex?\Large&space;D=\frac{avepairwisedif-\frac{numsegrsites}{a_1}}{\sqrt{e_1numsegrsites+e_2numsegrsites(numsegrsites-1)}})  
- 
-
-

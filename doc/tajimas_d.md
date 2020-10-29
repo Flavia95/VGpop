@@ -32,19 +32,11 @@ There are three essential element for calculate it:
 
 *n*: number of sequences.
 
-I'm starting from the output that derived from ***bubblepop***:
-
-Paths         | bubble1        | bubble2        | bubble3
---------------| -------------  | -------------- |---------
-pathx         | 0              | 1              | 0
-pathy         | 0              | 1              | 1
-pathz         | 1              | 0              | 0
-
 Where:
 
-1. [Number of sequences](/functions/utils.py#L9) is number of rows in a matrix i.e number of the paths in the VG.
+1. [Number of sequences](/functions/utils.py#L9) is number of rows in a matrix i.e number of the paths on VG.
 
-2. [Number of segregation sites](/functions/utils.py#L15) number of the columns in a matrix i.e number of the variable sites in the VG.
+2. [Number of segregation sites](/functions/utils.py#L15) number of the columns in a matrix i.e number of the variable sites on VG.
 
 3. [Count differences](doc/count_differences.md) on VG.
 

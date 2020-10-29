@@ -46,16 +46,17 @@ python GfatoVcf.py -path /../odgi/lib/ -input /../samplePath3.odgi
 
 These functions are [here](/functions/utils.py):
 
-##### 1. [allele_freq](/doc/allele_freq.md)
+        
+##### 1. num_sequences
+        arg1: matrix
+
+##### 2. num_segregating_sites
+        arg1: matrix
+        
+##### 3. [allele_freq](/doc/allele_freq.md)
         arg1: matrix
         arg2: collections
         
-##### 2. num_sequences
-        arg1: matrix
-
-##### 3. num_segregating_sites
-        arg1: matrix
-
 ##### 4. [count_differences](/doc/count_differences.md)
         arg1: matrix
 

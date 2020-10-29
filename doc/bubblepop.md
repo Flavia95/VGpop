@@ -41,11 +41,11 @@ Within the dictionary, the beginning and the end nodes of a bubbles are identifi
 
 As output we have a matrix, where the columns are the variants and the rows are the paths.
 
-Paths           | bubble1       | bubble2
--------------- | ------------- | -------------- 
-pathx         | A           | -
-pathy         | A            | A
-pathz         | T            | A
+Paths         | pos1        | pos2        | pos3
+--------------| -------------  | -------------- |---------
+pathx         | A              | T              | A
+pathy         | A              | T              | T
+pathz         | -              | -              | A
 
 Number of the sequences: are the number of the paths (rows)
 

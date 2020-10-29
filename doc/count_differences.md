@@ -3,9 +3,9 @@ I'm starting from the output that derived from ***bubblepop***:
 
 Paths         | pos1        | pos2        | pos3
 --------------| -------------  | -------------- |---------
-pathx         | 0              | 1              | 0
-pathy         | 0              | 1              | 1
-pathz         | 1              | 0              | 0
+pathx         | A              | T              | A
+pathy         | A              | T              | T
+pathz         | -              | -              | A
 
 Where [number of sequences](/functions/utils.py#L9) is number of rows in a matrix and [number of segregation sites](/functions/utils.py#L15) number of the columns in a matrix.
 The next step is calculate the total number of pairwise differences observed between all sequences.
@@ -16,9 +16,9 @@ The next step is calculate the total number of pairwise differences observed bet
     
 Combinations  | Value                  
 --------------| -------------   
-x,y           | ('0,1,0', '0,1,1')                            
-x,z           | ('0,1,0', '1,0,0')                           
-y,z           | ('0,1,1', '1,0,0')
+x,y           | ('A,T,A', 'A,T,T')                            
+x,z           | ('A,T,A', '-,-,A')                           
+y,z           | ('A,T,T', '-,-,A')
 
 2. I check each tuple value with each next tuple value. If the value is the same I put True otherwise I put *False*. 
 

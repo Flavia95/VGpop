@@ -19,9 +19,9 @@ I'm starting from the output that derived from ***bubblepop***:
 
 Paths         | pos1        | pos2        | pos3
 --------------| -------------  | -------------- |---------
-pathx         | 0              | 1              | 0
-pathy         | 0              | 1              | 1
-pathz         | 1              | 0              | 0
+pathx         | A              | T              | A
+pathy         | A              | T              | T
+pathz         | -              | -              | A
 
 Where [number of sequences](/functions/utils.py#L9) is number of rows in a matrix and [number of segregation sites](/functions/utils.py#L15) number of the columns in a matrix.
 

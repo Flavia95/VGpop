@@ -43,9 +43,9 @@ As output we have a matrix, where the columns are the variants and the rows are 
 
 Paths           | bubble1       | bubble2
 -------------- | ------------- | -------------- 
-pathx         | 0            | 1
-pathy         | 1            | 0
-pathz         | 0            | 1
+pathx         | A           | -
+pathy         | A            | A
+pathz         | T            | A
 
 Number of the sequences: are the number of the paths (rows)
 

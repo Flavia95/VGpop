@@ -1,5 +1,7 @@
 import sys
 import argparse
+import pandas as pd
+from  more_itertools import unique_everseen
 parser = argparse.ArgumentParser()
 parser.add_argument('-path',type=str, help='specific path where is lib odgi', required=True)
 parser.add_argument('-input',type=str, help ='specific input as format gfa.odgi', required=True)
@@ -31,7 +33,7 @@ g.for_each_path_handle(
 
 node_id_to_path_and_pos_dict = {}
 for path_name, steps_list in path_to_steps_dict.items():
-    #print(path_name)
+    print(path_name)
 
     pos = 0
     for nodeId_isRev in steps_list:
@@ -236,3 +238,149 @@ def print_all_paths(graph, start_node_id, end_node_id, all_path_list):
 
 
 print('\n------------------')
+
+
+path_to_sequence_dict = {}
+for path_name, steps_list in path_to_steps_dict.items():
+    path_to_sequence_dict[path_name] = ''
+
+    for node_id_rev in steps_list:
+        path_to_sequence_dict[path_name] += g.get_sequence(g.get_handle(int(node_id_rev[:-1])))
+
+
+stuff_to_alts_dict = {}
+for current_ref in path_to_steps_dict.keys():
+    # Remove the sign
+    ref_path = [int(x[:-1]) for x in path_to_steps_dict[current_ref]]   
+
+    for start, end in possible_bubbles_list[:-1]: # not the last element
+        print('ref_path:', ref_path)
+        print('Bubble [', start, ', ', end, ']')
+        start_node_index_in_ref_path = ref_path.index(start)
+        all_path_list = []
+        print_all_paths(g, start, end, all_path_list)
+
+        for path in all_path_list:
+            print('\tPath:', path)
+            pos_ref = node_id_to_path_and_pos_dict[start][current_ref]+1
+            pos_path = pos_ref
+
+            print('Start paths position:', pos_ref)
+
+            max_index = min(len(path), len(ref_path))
+            current_index_step_path, current_index_step_ref = (0, 0)
+            for i in range(0, max_index):
+
+                current_node_id_path = path[current_index_step_path]
+                current_node_id_ref = ref_path[current_index_step_ref + start_node_index_in_ref_path]
+
+                print(pos_ref, pos_path, '--->', current_node_id_ref, current_node_id_path)
+                if current_node_id_ref == current_node_id_path:
+                    print('REFERENCE')
+                    node_seq = g.get_sequence(g.get_handle(current_node_id_ref))
+                    pos_ref += len(node_seq)
+                    pos_path = pos_ref
+
+                    current_index_step_ref += 1
+                    current_index_step_path += 1
+                else:
+                    succ_node_id_path = path[current_index_step_path + 1]
+                    succ_node_id_ref = ref_path[current_index_step_ref + start_node_index_in_ref_path + 1]
+                    if succ_node_id_ref == current_node_id_path:
+                        #If the succ node in the ref is the current node in the current path, it means that
+                        #in the current path a node is missing, so there is a deletion respect to the reference
+                        
+                        print('DEL')
+                        node_seq_ref = g.get_sequence(g.get_handle(current_node_id_ref))
+
+                        prec_node_id_ref = ref_path[current_index_step_ref + start_node_index_in_ref_path - 1]
+                        prec_nod_seq_ref = g.get_sequence(g.get_handle(prec_node_id_ref))
+                        key = '_'.join([current_ref, str(pos_path - 1), prec_nod_seq_ref[-1] + node_seq_ref])
+                        if key not in stuff_to_alts_dict:
+                            stuff_to_alts_dict[key] = set()
+                        stuff_to_alts_dict[key].add(prec_nod_seq_ref[-1] + '_del')
+
+                        pos_ref += len(node_seq_ref)
+
+                        current_index_step_ref += 1
+                        current_node_id_ref = ref_path[current_index_step_ref + start_node_index_in_ref_path -1]
+                        print('\t', current_node_id_ref)
+                        continue
+                    elif succ_node_id_path == current_node_id_ref:
+                        #if the succ node in the current path there is a node in the ref, it means that
+                        #in the current path there is a node that is missing in the ref, that is an insertion
+                        
+                        print('INS')
+                        node_seq_path = g.get_sequence(g.get_handle(current_node_id_path))
+
+                        prec_node_id_ref = ref_path[current_index_step_ref + start_node_index_in_ref_path-1]
+                        prec_nod_seq_ref = g.get_sequence(g.get_handle(prec_node_id_ref))
+                        key = '_'.join([current_ref, str(pos_ref-1), prec_nod_seq_ref[-1]])
+                        if key not in stuff_to_alts_dict:
+                            stuff_to_alts_dict[key] = set()
+                        stuff_to_alts_dict[key].add(prec_nod_seq_ref[-1] + node_seq_path + '_ins')
+
+                        pos_path += len(node_seq_path)
+
+                        current_index_step_path += 1
+                        current_node_id_path = path[current_index_step_path]
+                        print('\t', current_node_id_path)
+                        continue
+                    else:
+                        node_seq_ref = g.get_sequence(g.get_handle(current_node_id_ref))
+                        node_seq_path = g.get_sequence(g.get_handle(current_node_id_path)) #if sequence is different = SNV
+
+                        if node_seq_ref == node_seq_path:
+                            print('REFERENCE')
+                        else:
+                            print('SNV')
+
+                        key = '_'.join([current_ref, str(pos_path), node_seq_ref])
+                        if key not in stuff_to_alts_dict:
+                            stuff_to_alts_dict[key] = set()
+                        stuff_to_alts_dict[key].add(node_seq_path + '_snv')
+
+                        pos_ref += len(node_seq_ref)
+                        pos_path += len(node_seq_path)
+                        current_index_step_ref += 1
+                        current_index_step_path += 1
+
+            print('---')        
+        #all_path_list.append(path_name,g.get_sequence(g.get_handle(node_id)))
+        #print(u_node_id)
+        print('==========================================')
+    
+        
+
+    #break  #I chose as reference the first path
+
+
+#Format matrix that have paths as rows and variants as columns (possible allele for all paths in the bubbles)
+
+chrom_to_dict = {}  #x: , y: , z: 
+list_allele = {}
+
+
+#1. Have path, allele for each positions
+for chrom_pos_ref, alt_type_set in stuff_to_alts_dict.items():
+    chrom, pos, ref = chrom_pos_ref.split('_')
+
+    if chrom not in chrom_to_dict:
+        chrom_to_dict[chrom] = []
+
+#2. Index for each path, x:0, y:1, z:2..       
+   
+    path_index= {k:i for i,k in enumerate(chrom_to_dict.keys())}
+
+#3. Check for each positions and for each paths if allele there is, if there isn't put a '-' (ins,del)
+    if pos not in list_allele:
+        list_allele[pos] = ['-'] * 3
+    list_allele[pos][path_index[chrom]] = ref
+
+#print(list_allele)
+
+#4. Matrix as row paths(sequences in a graph) and as columns positions (segregating sites)
+
+df = pd.DataFrame((list_allele), index = [i[0] for i in path_index])
+
+df.to_csv("bubble.csv",header=True)

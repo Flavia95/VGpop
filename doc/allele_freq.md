@@ -25,10 +25,10 @@ pathz         | -              | -              | A
 
 Where [number of sequences](/functions/utils.py#L9) is number of rows in a matrix and [number of segregation sites](/functions/utils.py#L15) number of the columns in a matrix.
 
-1. For each row (sequence) I calculate number of occurences of allele, number of times an allele is found. 
+1. For each column (sequence) I calculate number of occurences of allele, number of times an allele is found. 
 
-2. For each row I calculate the sum of number of occurences.
+2. I use function number of paths
 
 3. Return [allele_freq](/functions/utils.py#L21)
 
-![f_A=\frac{n_occurencesallele}{{(totalnumber)}](https://latex.codecogs.com/svg.latex?\Large&space;f_A=\frac{n_occurencesallele}{{(totalnumber)})
+![f_A=\frac{n_occurencesallele}{{(totalnumberofpaths)}](https://latex.codecogs.com/svg.latex?\Large&space;f_A=\frac{n_occurencesallele}{{(totalnumber)})

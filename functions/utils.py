@@ -3,7 +3,9 @@ from collections import Counter
 import collections
 
 with open('matrix.tsv', 'r') as f:
-    matrix = [l.strip() for l in f.readlines()]
+    matrix = [l.strip() for l in f.readlines()]   #controllare di saltare i%s :: %s ('C,G,G', 'y,C,-,G\n')
+
+
 
 #1. Return the rows of the matrix (paths=sequences of the VG).
 def num_sequences(matrix):
@@ -64,7 +66,7 @@ def avg_num_pairwise_differences(matrix):
     avg_num_pairwise_differences = count_differences(matrix)/num_sequences(matrix)
     return avg_num_pairwise_differences
 
-'''
+
 def main():
 
     print(num_sequences(matrix))
@@ -77,4 +79,4 @@ def main():
 
 if __name__ == "__main__":
     main()
-'''    
+    

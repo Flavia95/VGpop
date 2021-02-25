@@ -1,5 +1,5 @@
 ### Description
-**vcflift.py** takes as input a chunk of a vcf file, a chunk of the reference sequence in fasta that covers the region in the vcf and adjust the chromosome positions to match the positions in the fasta. The vcf should have been generated from the same reference sequence from which the fasta is extracted. 
+**vcflift.py**[] takes as input a chunk of a vcf file, a chunk of the reference sequence in fasta that covers the region in the vcf and adjust the chromosome positions to match the positions in the fasta. The vcf should have been generated from the same reference sequence from which the fasta is extracted. 
 
 #### Usage 
 vcflift.py -fasta pathToFastaFile -start startingPositionIntheReference -vcf vcfFile 

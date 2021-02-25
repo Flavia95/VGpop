@@ -5,7 +5,7 @@
 vcflift.py -fasta pathToFastaFile -start startingPositionIntheReference -vcf vcfFile 
 
 #### Example Usage 
-testdata in enzac@penguin2:/home/enzac/data/vcfliftTestData
+Test data in enzac@penguin2:/home/enzac/data/vcfliftTestData
 
 1. Decide which region you want to select. In the example I use chr19:3117753-3336924
 2. Extract the fasta chunks from the reference sequence. I use: 
@@ -13,7 +13,7 @@ testdata in enzac@penguin2:/home/enzac/data/vcfliftTestData
 `bedtools getfasta -fi /home/davida/UCSC_mm10.fa -bed test.region.zerobased.bed  >  test.UCSC_mm10.zerobased.fa`  
 
 Rememeber that bedtools 
- - is zerobased therefore the region in test.region.zerobased.bed is chr19:3117752-3336924 
+ - is zero-based therefore the region in test.region.zerobased.bed is chr19:3117752-3336924 
  - requires a newline at the end of the single line in the bed file 
 
 3. Extract the vcf chunks. I use: 
